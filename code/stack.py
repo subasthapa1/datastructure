@@ -1,4 +1,4 @@
-""""
+"""
 Implementation of stack.
 push: Push element to the stack
 pop: Remove item from the stack
@@ -10,53 +10,55 @@ Check if stack is empty or not.
 
 class Stack:
     def __init__(self):
-        self.stack = []
+        self.items = []
 
     def push(self, item):
-        self.stack.append(item)
+        self.items.append(item)
 
     def pop(self):
-        if self.isempty():
+        if self.is_empty():
             print("No items in a stack. Can\'t perform pop. Please add items in it.")
         else:
-            self.stack.pop()
+            self.items.pop()
             print("Successfully removed item from the stack.")
 
-    def isempty(self):
-        if len(self.stack) == 0:
-            return True
-        else:
-            return False
+    def is_empty(self):
+        return len(self.items) == 0
 
     def peek(self):
-        if self.isempty():
+        if self.is_empty():
             print("Stack is empty. No items in it.")
         else:
-            topitem = self.stack[-1]
+            topitem = self.items[-1]
             return f"Now new item on top is: {topitem}"
 
     def size(self):
-        return len(self.stack)
+        return len(self.items)
+
+    def __str__(self):
+        return str(self.items)
 
 
-myStack = Stack()
-myStack.push("S")
-print(myStack.stack)
-myStack.push("U")
-print(myStack.stack)
-myStack.push("R")
-print(myStack.stack)
-myStack.push("Y")
-print(myStack.stack)
-myStack.push("A")
-print(myStack.stack)
-myStack.push("N")
+if __name__ == "__main__":
+    s = Stack()
+    s.push("S")
+    print(s.items)
+    s.push("U")
+    print(s.items)
+    s.push("R")
+    print(s.items)
+    s.push("Y")
+    print(s.items)
+    s.push("A")
+    print(s.items)
+    s.push("N")
 
-myStack.pop()
-myStack.push("D")
-print(myStack.size())
+    s.pop()
+    s.push("D")
+    print(s.size())
 
-print(myStack.peek())
+    print(s.peek())
 
-print(myStack.stack)
-print(myStack.size())
+    print(s.items)
+    print(s.size())
+    print(s.__str__())
